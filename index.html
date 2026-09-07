@@ -1,11 +1,10 @@
 pannellum.viewer('panorama', {
     "type": "flat",
-    "panorama": "manzara.jpeg",
+    // Resmin sonuna eklediğimiz ?v=1 parametresi tarayıcının önbelleğini (cache) tamamen kırar
+    "panorama": "manzara.jpeg?v=1", 
     "autoLoad": true,
-    "hfov": 60,          // İlk açılış zoom'unu daraltarak ekran kartının yükünü hafifletiyoruz
+    "hfov": 60,
     "maxHfov": 100,
     "minHfov": 10,
-    "crossOrigin": "anonymous" // GitHub sunucusundan resmi çekerken izinleri zorunlu tutar
+    "crossOrigin": "anonymous"
 });
-
-

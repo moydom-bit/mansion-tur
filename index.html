@@ -11,19 +11,21 @@
 </head>
 <body>
 
-    <!-- Tur ekranının oynatılacağı alan -->
     <div id="panorama"></div>
 
-    <!-- KRİTİK ALAN: Kodların düzgün çalışması için script etiketlerinin tam bu yapıda olması şarttır -->
     <script type="text/javascript">
     pannellum.viewer('panorama', {
         "type": "flat",
-        "panorama": "manzara.jpeg?v=1",
+        "panorama": "manzara.jpeg",
         "autoLoad": true,
-        "hfov": 60,
-        "maxHfov": 100,
-        "minHfov": 10,
-        "crossOrigin": "anonymous"
+        "crossOrigin": "anonymous",
+        
+        /* KRİTİK AYARLAR: Düz resim modunda motorun takılmasını engelleyen sınırlar */
+        "hfov": 90,           // İlk açılış yakınlığı
+        "maxHfov": 120,       // En fazla uzaklaşma sınırı
+        "minHfov": 20,        // En fazla yakınlaşma (Zoom) sınırı
+        "yawBound": 180,      // Sağa-sola maksimum kayma derecesi
+        "pitchBound": 90      // Yukarı-aşağı maksimum kayma derecesi
     });
     </script>
 

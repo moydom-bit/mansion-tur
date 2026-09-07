@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Profesyonel Fotoğraf Turu</title>
+    <link rel="stylesheet" href="pannellum.css"/>
+    <script type="text/javascript" src="pannellum.js"></script>
+    <style>
+        html, body, #panorama { width: 100%; height: 100%; margin: 0; padding: 0; background-color: #000; }
+    </style>
+</head>
+<body>
+
+    <div id="panorama"></div>
+
+    <script>
+    pannellum.viewer('panorama', {
+        "type": "flat",            // KRİTİK DEĞİŞİKLİK: 360 bükülmesini iptal edip düz profesyonel resim moduna alıyoruz
+        "panorama": "manzara.jpeg", // Klasördeki resim adınız (Büyük-küçük harfe dikkat edin, uzantısı .jpeg mi .jpg mi kontrol edin)
+        "autoLoad": true,
+        "hfov": 100,               // İlk açılıştaki yakınlık derecesi
+        "maxHfov": 120,            // En fazla ne kadar uzaklaşabileceği
+        "minHfov": 30,             // En fazla ne kadar yakınlaşabileceği (Zoom kalitesi)
+        "friction": 0.1            // Sinematik yumuşak duruş efekti
+    });
+    </script>
+
+</body>
+</html>

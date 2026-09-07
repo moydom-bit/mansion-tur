@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360 Sanal Tur - antalyamoydom</title>
+    <title>360 Virtual Tour - antalyamoydom</title>
     
-    <!-- Pannellum CSS -->
+    <!-- Pannellum CSS & JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-    <!-- Pannellum JS -->
-    <script type="text/javascript" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <style>
@@ -31,10 +29,93 @@
 
 <script>
 pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "manzara.jpg", /* Görselinizin adı ve uzantısı */
-    "autoLoad": true,
-    "autoRotate": -2
+    "default": {
+        "firstScene": "livingRoom", /* Initial room displayed upon loading */
+        "author": "antalyamoydom",
+        "sceneFadeDuration": 1000, /* Smooth transition duration between rooms (1 sec) */
+        "autoLoad": true,
+        "hotSpotDebug": true /* Debug mode enabled for easy pitch/yaw coordinate positioning */
+    },
+
+    "scenes": {
+        /* ROOM 1: LIVING ROOM */
+        "livingRoom": {
+            "title": "Living Room",
+            "type": "equirectangular",
+            "panorama": "salon.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 45,
+                    "type": "scene",
+                    "text": "Go to Kitchen",
+                    "sceneId": "kitchen"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": -90,
+                    "type": "scene",
+                    "text": "Go to Bedroom",
+                    "sceneId": "bedroom"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": 180,
+                    "type": "scene",
+                    "text": "Go to Balcony",
+                    "sceneId": "balcony"
+                }
+            ]
+        },
+
+        /* ROOM 2: KITCHEN */
+        "kitchen": {
+            "title": "Kitchen",
+            "type": "equirectangular",
+            "panorama": "kitchen.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": -135,
+                    "type": "scene",
+                    "text": "Back to Living Room",
+                    "sceneId": "livingRoom"
+                }
+            ]
+        },
+
+        /* ROOM 3: BEDROOM */
+        "bedroom": {
+            "title": "Bedroom",
+            "type": "equirectangular",
+            "panorama": "bedroom.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Back to Living Room",
+                    "sceneId": "livingRoom"
+                }
+            ]
+        },
+
+        /* ROOM 4: BALCONY */
+        "balcony": {
+            "title": "Balcony",
+            "type": "equirectangular",
+            "panorama": "balcony.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 0,
+                    "type": "scene",
+                    "text": "Back to Living Room",
+                    "sceneId": "livingRoom"
+                }
+            ]
+        }
+    }
 });
 </script>
 
